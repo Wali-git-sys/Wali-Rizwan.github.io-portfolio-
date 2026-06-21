@@ -2,7 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Syed Rizwan | Data Engineer & BI Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#0a0a0f;--sidebar:#111118;--accent:#00e5c0;--accent2:#7b61ff;--text:#e8e8f0;--muted:#6b6b80;--card:#16161f;--border:#1e1e2e}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+    .sidebar{width:260px;min-height:100vh;background:var(--sidebar);border-right:1px solid var(--border);position:fixed;top:0;left:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;z-index:100}
+    .avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.8rem;color:#0a0a0f;font-weight:700;margin-bottom:16px;box-shadow:0 0 30px rgba(0,229,192,0.3)}
+    .sidebar-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);text-align:center}
+    .sidebar-title{font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-top:6px;text-align:center}
+    .sidebar-nav{margin-top:48px;width:100%;list-style:none}
+    .sidebar-nav li a{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:all 0.3s;margin-bottom:4px}
+    .sidebar-nav li a:hover,.sidebar-nav li a.active{background:rgba(0,229,192,0.08);color:var(--accent)}
+    .sidebar-certs{margin-top:auto;width:100%;border-top:1px solid var(--border);padding-top:24px}
+    .sidebar-certs p{font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);text-align:center;margin-bottom:16px}
+    .cert-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+    .cert-badge{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:4px 10px;font-size:0.68rem;color:var(--accent);font-weight:500}
+    .main{margin-left:260px;flex:1}
+    section{min-height:100vh;padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+    #intro{background:var(--bg);position:relative;overflow:hidden}
+    #intro::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,192,0.06) 0%,transparent 70%);pointer-events:none}
+    .hero-tag{display:inline-block;background:rgba(0,229,192,0.1);border:1px solid rgba(0,229,192,0.3);color:var(--accent);padding:6px 16px;border-radius:50px;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;animation:fadeUp 0.6s ease both}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.1;font-weight:700;animation:fadeUp 0.6s ease 0.15s both}
+    .hero-title span{color:var(--accent)}
+    .hero-desc{max-width:620px;margin-top:24px;font-size:1.05rem;line-height:1.8;color:#9999b0;animation:fadeUp 0.6s ease 0.3s both}
+    .hero-btns{display:flex;gap:16px;margin-top:40px;animation:fadeUp 0.6s ease 0.45s both;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:#0a0a0f;padding:14px 32px;border-radius:50px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,229,192,0.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,229,192,0.4)}
+    .btn-outline{border:1px solid var(--border);color:var(--text);padding:14px 32px;border-radius:50px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:all 0.3s}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+    .hero-stats{display:flex;gap:48px;margin-top:60px;animation:fadeUp 0.6s ease 0.6s both;flex-wrap:wrap}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--accent)}
+    .stat-label{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+    .section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;margin-bottom:48px}
+    #experience{background:var(--bg)}
+    .exp-timeline{display:flex;flex-direction:column;gap:24px}
+    .exp-card{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 16px 16px 0;padding:28px 32px;transition:all 0.3s}
+    .exp-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+    .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+    .exp-role{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
+    .exp-company{color:var(--accent);font-size:0.9rem;font-weight:500;margin-bottom:4px}
+    .exp-date{font-size:0.8rem;color:var(--muted);background:rgba(0,229,192,0.07);border:1px solid rgba(0,229,192,0.15);padding:4px 12px;border-radius:50px;white-space:nowrap}
+    .exp-bullets{margin-top:14px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+    .exp-bullets li{font-size:0.875rem;color:#8888a8;line-height:1.7;padding-left:16px;position:relative}
+    .exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:0.7rem;top:3px}
+    #portfolio{background:var(--bg)}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px}
+    .project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;position:relative}
+    .project-card:hover{transform:translateY(-4px);border-color:rgba(0,229,192,0.2);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+    .project-img-container{width:100%;height:200px;overflow:hidden;position:relative;background:#0d0d16;cursor:pointer}
+    .project-img-container img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+    .project-card:hover .project-img-container img{transform:scale(1.05)}
+    .img-nav{position:absolute;bottom:8px;right:8px;display:flex;gap:6px}
+    .img-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s}
+    .img-dot.active{background:var(--accent)}
+    .img-prev,.img-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+    .img-prev{left:8px}.img-next{right:8px}
+    .img-prev:hover,.img-next:hover{background:var(--accent);color:#0a0a0f}
+    .project-body{padding:24px}
+    .project-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .project-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+    .project-icon.green{background:rgba(0,229,192,0.1)}
+    .project-icon.purple{background:rgba(123,97,255,0.1)}
+    .project-icon.blue{background:rgba(0,150,255,0.1)}
+    .project-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
+    .project-desc{font-size:0.875rem;color:#7777a0;line-height:1.7;margin-bottom:16px}
+    .project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+    .tag{background:rgba(0,229,192,0.07);border:1px solid rgba(0,229,192,0.15);color:var(--accent);padding:4px 10px;border-radius:50px;font-size:0.7rem;font-weight:500}
+    .project-link{font-size:0.8rem;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:500;transition:gap 0.2s}
+    .project-link:hover{gap:10px}
+    #skills{background:var(--bg)}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+    .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px;transition:all 0.3s}
+    .skill-card:hover{border-color:rgba(0,229,192,0.3);background:rgba(0,229,192,0.04)}
+    .skill-icon{font-size:1.5rem}
+    .skill-name{font-size:0.9rem;font-weight:500}
+    .skill-level{font-size:0.7rem;color:var(--muted);margin-top:2px}
+    #about{background:var(--bg)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .about-text p{color:#8888a8;line-height:1.9;margin-bottom:16px;font-size:0.95rem}
+    .about-highlights{display:flex;flex-direction:column;gap:16px}
+    .highlight-item{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px}
+    .highlight-title{font-weight:600;font-size:0.9rem;margin-bottom:4px}
+    .highlight-sub{font-size:0.8rem;color:var(--muted)}
+    #contact{background:var(--bg)}
+    .contact-links{display:flex;flex-direction:column;gap:12px;max-width:500px}
+    .contact-link{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.3s;font-size:0.9rem}
+    .contact-link:hover{border-color:var(--accent);color:var(--accent);transform:translateX(4px)}
+    .contact-intro{color:#8888a8;line-height:1.9;font-size:0.95rem;margin-bottom:32px;max-width:550px}
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 0 60px rgba(0,0,0,0.8)}
+    .lightbox-close{position:absolute;top:20px;right:30px;color:white;font-size:2rem;cursor:pointer;background:none;border:none;line-height:1}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+    @media(max-width:900px){.sidebar{display:none}.main{margin-left:0}section{padding:60px 24px}.about-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <h1>Syed Rizwan</h1>
